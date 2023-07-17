@@ -1,12 +1,17 @@
 import webpack from "webpack";
-import {BuildPaths} from "./types/config";
+import {BuildOptions} from "./types/config";
 import {plugins} from "./plugins";
 import {loaders} from "./loaders";
 import {resolves} from "./resolves";
 
-export const webpackConfig = (paths: BuildPaths): webpack.Configuration => {
+export const webpackConfig = (options: BuildOptions): webpack.Configuration => {
+    const {
+        paths,
+        mode
+    } = options;
+
     return {
-        mode: 'development',
+        mode,
         entry: paths.entry,
         output: {
             filename: 'main.[contenthash].js',

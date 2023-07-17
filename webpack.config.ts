@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import {webpackConfig} from "./config/build/webpack.config";
+import {BuildMode, BuildOptions} from "./config/build/types/config";
 
 export default () => {
     const paths = {
@@ -9,7 +10,16 @@ export default () => {
         html: path.resolve(__dirname, 'public', 'index.html'),
     }
 
-    const config: webpack.Configuration = webpackConfig(paths);
+    const mode: BuildMode = 'development';
+    const isDev = mode === 'development';
+
+    const options: BuildOptions = {
+        mode,
+        paths,
+        isDev,
+    }
+
+    const config: webpack.Configuration = webpackConfig(options);
 
     return config;
 }
