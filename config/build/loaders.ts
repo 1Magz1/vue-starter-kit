@@ -6,7 +6,14 @@ export const loaders = (): webpack.RuleSetRule[] => {
         use: 'ts-loader',
         exclude: /node_modules/,
     }
+
+    const vueLoader =       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+    }
+
     return [
-        typeScriptLoader
+        typeScriptLoader,
+        vueLoader
     ]
 }
