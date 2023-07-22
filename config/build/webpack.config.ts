@@ -3,6 +3,7 @@ import {BuildOptions} from "./types/config";
 import {plugins} from "./plugins";
 import {loaders} from "./loaders";
 import {resolves} from "./resolves";
+import {devServer} from "./devServer";
 
 export const webpackConfig = (options: BuildOptions): webpack.Configuration => {
     const {
@@ -19,9 +20,11 @@ export const webpackConfig = (options: BuildOptions): webpack.Configuration => {
             clean: true
         },
         plugins: plugins(paths),
-        resolve: resolves(),
         module: {
             rules: loaders(),
         },
+        resolve: resolves(),
+        devtool: 'inline-source-map',
+        devServer: devServer(options)
     }
 }
