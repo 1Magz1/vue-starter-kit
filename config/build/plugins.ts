@@ -11,6 +11,10 @@ export const plugins = (paths: BuildPaths): webpack.WebpackPluginInstance[] => {
             template: paths.html
         }),
         new VueLoaderPlugin(),
+        new webpack.DefinePlugin({
+            "__VUE_PROD_DEVTOOLS__": true,
+            "__VUE_OPTIONS_API__": true
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
             chunkFilename: '[name][id].[contenthash].css'
