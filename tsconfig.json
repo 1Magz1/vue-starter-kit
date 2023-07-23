@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "noImplicitAny": true,
+    "noImplicitAny": false, // if true error while style scoped used
     "target": "es5",
     "allowJs": true,
     "moduleResolution": "node",
