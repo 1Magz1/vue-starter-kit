@@ -21,7 +21,7 @@ export const webpackConfig = (options: BuildOptions): webpack.Configuration => {
         },
         plugins: plugins(paths),
         module: {
-            rules: loaders(),
+            rules: loaders(options),
         },
         resolve: resolves(),
         devtool: 'inline-source-map',
